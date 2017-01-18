@@ -170,7 +170,7 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 			throw new StringIndexOutOfBoundsException(end);
 		}
 
-		return toString();
+		return toString().subSequence(start, end);
 	}
 
 	@Override
