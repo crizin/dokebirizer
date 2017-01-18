@@ -108,7 +108,7 @@ public class Dokebirizer {
 	private final Jaso.Chosung secondChosung;
 
 	public Dokebirizer() {
-		this(Policy.Split, Jaso.Chosung.ㅂ);
+		this(Policy.Split, Jaso.Chosung.ᄇ);
 	}
 
 	public Dokebirizer(Policy policy, Jaso.Chosung secondChosung) {

@@ -11,11 +11,11 @@ public class DokebirizerTest {
 		assertEquals("아반녀벙하바세베요보.", dokebirizer.encode("안녕하세요."));
 		assertEquals("안녕하세요.", dokebirizer.decode("아반녀벙하바세베요보."));
 
-		dokebirizer = new Dokebirizer(Dokebirizer.Policy.Copy, Jaso.Chosung.ㅂ);
+		dokebirizer = new Dokebirizer(Dokebirizer.Policy.Copy, Jaso.Chosung.ᄇ);
 		assertEquals("아반녀벙하바세베요보.", dokebirizer.encode("안녕하세요."));
 		assertEquals("안녕하세요.", dokebirizer.decode("아반녀벙하바세베요보."));
 
-		dokebirizer = new Dokebirizer(Dokebirizer.Policy.Transform, Jaso.Chosung.ㅂ);
+		dokebirizer = new Dokebirizer(Dokebirizer.Policy.Transform, Jaso.Chosung.ᄇ);
 		assertEquals("아반녀벙하바세베요보.", dokebirizer.encode("안녕하세요."));
 		assertEquals("안녕하세요.", dokebirizer.decode("아반녀벙하바세베요보."));
 	}
