@@ -1,0 +1,12 @@
+group 'net.crizin'
+version '1.0.0'
+
+apply plugin: 'java'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testCompile 'junit:junit:4.12'
+}
