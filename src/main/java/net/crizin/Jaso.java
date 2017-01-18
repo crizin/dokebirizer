@@ -1,8 +1,12 @@
 package net.crizin;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Jaso {
+public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
+	private static final long serialVersionUID = -613436564625446761L;
+
+
 	public enum Chosung {
 		ㄱ(0), ㄲ(1), ㄴ(2), ㄷ(3), ㄸ(4), ㄹ(5), ㅁ(6), ㅂ(7), ㅃ(8), ㅅ(9), ㅆ(10), ㅇ(11), ㅈ(12), ㅉ(13), ㅊ(14), ㅋ(15), ㅌ(16), ㅍ(17), ㅎ(18);
 
@@ -125,6 +129,48 @@ public class Jaso {
 				jongsung.sequence;
 
 		return (char) (code + hangulUnicodeBase);
+	}
+
+	@Override
+	public int compareTo(Jaso o) {
+		return Character.compare(toCharacter(), o.toCharacter());
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		return this == o || !(o == null || getClass() != o.getClass()) && toCharacter() == ((Jaso) o).toCharacter();
+	}
+
+	@Override
+	public int hashCode() {
+		return Character.hashCode(toCharacter());
+	}
+
+	@Override
+	public int length() {
+		return 1;
+	}
+
+	@Override
+	public char charAt(int index) {
+		if (index != 0) {
+			throw new StringIndexOutOfBoundsException(index);
+		}
+
+		return toCharacter();
+	}
+
+	@Override
+	public CharSequence subSequence(int start, int end) {
+		if (start < 0) {
+			throw new StringIndexOutOfBoundsException(start);
+		}
+
+		if (end > 1) {
+			throw new StringIndexOutOfBoundsException(end);
+		}
+
+		return toString();
 	}
 
 	@Override
