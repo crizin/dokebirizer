@@ -7,8 +7,8 @@ import static org.junit.Assert.*;
 public class JasoTest {
 	@Test
 	public void test() {
-		assertTrue(Jaso.isValid('얍'));
-		assertTrue(Jaso.isValid('ㅎ'));
+		assertTrue(Jaso.isValid('햏'));
+		assertFalse(Jaso.isValid('ㅎ'));
 		assertFalse(Jaso.isValid('A'));
 		assertFalse(Jaso.isValid(' '));
 

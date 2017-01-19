@@ -1,7 +1,6 @@
 package net.crizin;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 	private static final long serialVersionUID = -613436564625446761L;
@@ -9,27 +8,23 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 	public enum Chosung {
 		ᄀ(0), ᄁ(1), ᄂ(2), ᄃ(3), ᄄ(4), ᄅ(5), ᄆ(6), ᄇ(7), ᄈ(8), ᄉ(9), ᄊ(10), ᄋ(11), ᄌ(12), ᄍ(13), ᄎ(14), ᄏ(15), ᄐ(16), ᄑ(17), ᄒ(18);
 
+		private static final Chosung[] index = Chosung.values();
+
 		private final int sequence;
 
 		Chosung(int sequence) {
 			this.sequence = sequence;
 		}
 
-		public int getSequence() {
-			return sequence;
-		}
-
-		public Character getChar() {
-			return name().charAt(0);
-		}
-
 		public static Chosung find(int sequence) {
-			return Arrays.stream(values()).filter(e -> e.sequence == sequence).findFirst().orElseThrow(IllegalArgumentException::new);
+			return index[sequence];
 		}
 	}
 
 	public enum Jungsung {
 		ㅏ(0), ㅐ(1), ㅑ(2), ㅒ(3), ㅓ(4), ㅔ(5), ㅕ(6), ㅖ(7), ㅗ(8), ㅘ(9), ㅙ(10), ㅚ(11), ㅛ(12), ㅜ(13), ㅝ(14), ㅞ(15), ㅟ(16), ㅠ(17), ㅡ(18), ㅢ(19), ㅣ(20);
+
+		private static final Jungsung[] index = Jungsung.values();
 
 		private final int sequence;
 
@@ -37,21 +32,15 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 			this.sequence = sequence;
 		}
 
-		public int getSequence() {
-			return sequence;
-		}
-
-		public Character getChar() {
-			return name().charAt(0);
-		}
-
 		public static Jungsung find(int sequence) {
-			return Arrays.stream(values()).filter(e -> e.sequence == sequence).findFirst().orElseThrow(IllegalArgumentException::new);
+			return index[sequence];
 		}
 	}
 
 	public enum Jongsung {
 		None(0), ᆨ(1), ᆩ(2), ᆪ(3), ᆫ(4), ᆬ(5), ᆭ(6), ᆮ(7), ᆯ(8), ᆰ(9), ᆱ(10), ᆲ(11), ᆳ(12), ᆴ(13), ᆵ(14), ᆶ(15), ᆷ(16), ᆸ(17), ᆹ(18), ᆺ(19), ᆻ(20), ᆼ(21), ᆽ(22), ᆾ(23), ᆿ(24), ᇀ(25), ᇁ(26), ᇂ(27);
+
+		private static final Jongsung[] index = Jongsung.values();
 
 		private final int sequence;
 
@@ -59,16 +48,8 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 			this.sequence = sequence;
 		}
 
-		public int getSequence() {
-			return sequence;
-		}
-
-		public Character getChar() {
-			return (sequence == None.sequence) ? null : name().charAt(0);
-		}
-
 		public static Jongsung find(int sequence) {
-			return Arrays.stream(values()).filter(e -> e.sequence == sequence).findFirst().orElseThrow(IllegalArgumentException::new);
+			return index[sequence];
 		}
 	}
 
