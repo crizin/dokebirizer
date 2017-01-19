@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 public class Dokebirizer {
 	public enum Policy {
@@ -60,7 +61,7 @@ public class Dokebirizer {
 			Jaso jaso1 = new Jaso(character);
 			Jaso jaso2 = new Jaso(character);
 
-			Jaso.Jungsung[] jungsungs = convertJungsung(jaso1.getJungsung());
+			Jaso.Jungsung[] jungsungs = splitJungsung(jaso1.getJungsung());
 
 			jaso1.setJongsung(Jaso.Jongsung.None);
 			jaso1.setJungsung(jungsungs[0]);
@@ -82,9 +83,9 @@ public class Dokebirizer {
 				return null;
 			}
 
-			Jaso.Jungsung[] jungsungs = convertJungsung(j1.getJungsung());
+			Jaso.Jungsung jungsung = joinJungsung(j1.getJungsung(), j2.getJungsung());
 
-			if (jungsungs[0] != j1.getJungsung() || jungsungs[1] != j2.getJungsung()) {
+			if (jungsung == null) {
 				return null;
 			}
 
@@ -92,13 +93,26 @@ public class Dokebirizer {
 				return null;
 			}
 
+			j1.setJungsung(jungsung);
 			j1.setJongsung(j2.getJongsung());
 
 			return j1.toCharacter();
 		}
 
-		private Jaso.Jungsung[] convertJungsung(Jaso.Jungsung jungsung) {
+		private Jaso.Jungsung[] splitJungsung(Jaso.Jungsung jungsung) {
 			return getJungsungMap().getOrDefault(jungsung, commonJungsungMap.getOrDefault(jungsung, new Jaso.Jungsung[]{jungsung, jungsung}));
+		}
+
+		private Jaso.Jungsung joinJungsung(Jaso.Jungsung jungsung1, Jaso.Jungsung jungsung2) {
+			if (jungsung1 == jungsung2) {
+				return jungsung1;
+			}
+
+			return Stream.concat(getJungsungMap().entrySet().stream(), commonJungsungMap.entrySet().stream())
+					.filter(e -> e.getValue()[0] == jungsung1 && e.getValue()[1] == jungsung2)
+					.map(Map.Entry::getKey)
+					.findFirst()
+					.orElseGet(() -> null);
 		}
 
 		abstract Map<Jaso.Jungsung, Jaso.Jungsung[]> getJungsungMap();

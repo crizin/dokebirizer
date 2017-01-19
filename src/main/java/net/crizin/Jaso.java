@@ -72,7 +72,6 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 		}
 	}
 
-	private static final int hangulUnicodeBase = 0xAC00;
 	private static final int jungsungCount = Jungsung.values().length;
 	private static final int jongsungCount = Jongsung.values().length;
 
@@ -81,7 +80,7 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 	private Jongsung jongsung;
 
 	public Jaso(char character) {
-		int code = character - hangulUnicodeBase;
+		int code = character - 0xAC00;
 
 		chosung = Chosung.find(code / (jungsungCount * jongsungCount));
 		jungsung = Jungsung.find(code % (jungsungCount * jongsungCount) / jongsungCount);
@@ -89,7 +88,7 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 	}
 
 	public static boolean isValid(char character) {
-		return (character >= 'ㄱ' && character <= '힣');
+		return (character >= 0xAC00 && character <= 0xD7A3);
 	}
 
 	public Chosung getChosung() {
@@ -127,7 +126,7 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 				jungsung.sequence * jongsungCount +
 				jongsung.sequence;
 
-		return (char) (code + hangulUnicodeBase);
+		return (char) (code + 0xAC00);
 	}
 
 	@Override
@@ -152,23 +151,11 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 
 	@Override
 	public char charAt(int index) {
-		if (index != 0) {
-			throw new StringIndexOutOfBoundsException(index);
-		}
-
-		return toCharacter();
+		return toString().charAt(index);
 	}
 
 	@Override
 	public CharSequence subSequence(int start, int end) {
-		if (start < 0) {
-			throw new StringIndexOutOfBoundsException(start);
-		}
-
-		if (end > 1) {
-			throw new StringIndexOutOfBoundsException(end);
-		}
-
 		return toString().subSequence(start, end);
 	}
 
