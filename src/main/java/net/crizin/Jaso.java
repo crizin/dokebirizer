@@ -53,8 +53,8 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 		}
 	}
 
-	private static final int jungsungCount = Jungsung.values().length;
-	private static final int jongsungCount = Jongsung.values().length;
+	private static final int jungsungCount = Jungsung.index.length;
+	private static final int jongsungCount = Jongsung.index.length;
 
 	private Chosung chosung;
 	private Jungsung jungsung;
