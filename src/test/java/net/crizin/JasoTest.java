@@ -14,28 +14,28 @@ public class JasoTest {
 
 		Jaso jaso = new Jaso('얍');
 		assertEquals("얍", jaso.toString());
-		assertEquals(Jaso.Chosung.ㅇ, jaso.getChosung());
+		assertEquals(Jaso.Chosung.ᄋ, jaso.getChosung());
 		assertEquals(Jaso.Jungsung.ㅑ, jaso.getJungsung());
-		assertEquals(Jaso.Jongsung.ㅂ, jaso.getJongsung());
+		assertEquals(Jaso.Jongsung.ᆸ, jaso.getJongsung());
 
 		jaso = new Jaso('하');
 		assertEquals("하", jaso.toString());
-		assertEquals(Jaso.Chosung.ㅎ, jaso.getChosung());
+		assertEquals(Jaso.Chosung.ᄒ, jaso.getChosung());
 		assertEquals(Jaso.Jungsung.ㅏ, jaso.getJungsung());
 		assertEquals(Jaso.Jongsung.None, jaso.getJongsung());
 
 		jaso = new Jaso('강');
 
-		assertEquals(Jaso.Chosung.ㄱ, jaso.setChosung(Jaso.Chosung.ㅅ));
+		assertEquals(Jaso.Chosung.ᄀ, jaso.setChosung(Jaso.Chosung.ᄉ));
 		assertEquals("상", jaso.toString());
 
 		assertEquals(Jaso.Jungsung.ㅏ, jaso.setJungsung(Jaso.Jungsung.ㅗ));
 		assertEquals("송", jaso.toString());
 
-		assertEquals(Jaso.Jongsung.ㅇ, jaso.setJongsung(Jaso.Jongsung.ㅁ));
+		assertEquals(Jaso.Jongsung.ᆼ, jaso.setJongsung(Jaso.Jongsung.ᆷ));
 		assertEquals("솜", jaso.toString());
 
-		assertEquals(Jaso.Jongsung.ㅁ, jaso.setJongsung(Jaso.Jongsung.None));
+		assertEquals(Jaso.Jongsung.ᆷ, jaso.setJongsung(Jaso.Jongsung.None));
 		assertEquals("소", jaso.toString());
 	}
 }

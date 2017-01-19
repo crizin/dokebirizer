@@ -6,7 +6,6 @@ import java.util.Arrays;
 public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 	private static final long serialVersionUID = -613436564625446761L;
 
-
 	public enum Chosung {
 		ᄀ(0), ᄁ(1), ᄂ(2), ᄃ(3), ᄄ(4), ᄅ(5), ᄆ(6), ᄇ(7), ᄈ(8), ᄉ(9), ᄊ(10), ᄋ(11), ᄌ(12), ᄍ(13), ᄎ(14), ᄏ(15), ᄐ(16), ᄑ(17), ᄒ(18);
 
