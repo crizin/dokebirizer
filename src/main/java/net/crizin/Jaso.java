@@ -53,9 +53,6 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 		}
 	}
 
-	private static final int jungsungCount = Jungsung.index.length;
-	private static final int jongsungCount = Jongsung.index.length;
-
 	private Chosung chosung;
 	private Jungsung jungsung;
 	private Jongsung jongsung;
@@ -63,9 +60,9 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 	public Jaso(char character) {
 		int code = character - 0xAC00;
 
-		chosung = Chosung.find(code / (jungsungCount * jongsungCount));
-		jungsung = Jungsung.find(code % (jungsungCount * jongsungCount) / jongsungCount);
-		jongsung = Jongsung.find(code % jongsungCount);
+		chosung = Chosung.find(code / (Jungsung.index.length * Jongsung.index.length));
+		jungsung = Jungsung.find(code % (Jungsung.index.length * Jongsung.index.length) / Jongsung.index.length);
+		jongsung = Jongsung.find(code % Jongsung.index.length);
 	}
 
 	public static boolean isValid(char character) {
@@ -103,8 +100,8 @@ public class Jaso implements Serializable, Comparable<Jaso>, CharSequence {
 	}
 
 	public char toCharacter() {
-		int code = chosung.sequence * jungsungCount * jongsungCount +
-				jungsung.sequence * jongsungCount +
+		int code = chosung.sequence * Jungsung.index.length * Jongsung.index.length +
+				jungsung.sequence * Jongsung.index.length +
 				jongsung.sequence;
 
 		return (char) (code + 0xAC00);

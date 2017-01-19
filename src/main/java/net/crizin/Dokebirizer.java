@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Dokebirizer {
@@ -58,6 +59,10 @@ public class Dokebirizer {
 		};
 
 		public String dokebirize(char character, Jaso.Chosung secondChosung) {
+			if (!Jaso.isValid(character)) {
+				return String.valueOf(character);
+			}
+
 			Jaso jaso1 = new Jaso(character);
 			Jaso jaso2 = new Jaso(character);
 
@@ -131,21 +136,10 @@ public class Dokebirizer {
 	}
 
 	public String encode(String string) {
-		Objects.requireNonNull(string);
-
-		StringBuilder sb = new StringBuilder(string.length() * 2);
-
-		for (int i = 0, length = string.length(); i < length; i++) {
-			char c = string.charAt(i);
-
-			if (Jaso.isValid(c)) {
-				sb.append(policy.dokebirize(c, secondChosung));
-			} else {
-				sb.append(c);
-			}
-		}
-
-		return sb.toString();
+		return Objects.requireNonNull(string).chars()
+				.boxed()
+				.map(c -> policy.dokebirize((char) c.intValue(), secondChosung))
+				.collect(Collectors.joining());
 	}
 
 	public String decode(String string) {
