@@ -6,19 +6,19 @@
 
 # Dokebirizer 생성자 파라미터
 
-## `Dokebirizer.Policy`
+## Dokebirizer.Policy
 
 두 번쨰 음절의 모음을 어떻게 표현할지 결정하는 방법. 기본값은 `Policy.Split`.
 
-### `Policy.Split`
+### Policy.Split
 이중모음을 분리시켜 사용하는 방법.
 
-### `Policy.Copy`
+### Policy.Copy
 이중모음을 그대로 두번째 중성에도 가져가 사용하는 방법.
 
-### `Policy.Transform`
+### Policy.Transform
 이중모음을 첫글자 중성에는 그대로, 두번째 글자의 중성에는 이중모음의 두 번째 모음으로 중성을 사용하는 방법.
 
-# `Jaso.Chosung`
+# Jaso.Chosung
 
 두 번째 음절의 초성으로 사용할 자음을 지정. 기본값은 'ㅂ'.
