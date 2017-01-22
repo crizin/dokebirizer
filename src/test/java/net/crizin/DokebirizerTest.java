@@ -15,17 +15,17 @@ public class DokebirizerTest {
 		assertEquals(original, dokebirizer.decode(dokebirized));
 
 		dokebirizer = new Dokebirizer(Dokebirizer.Policy.Split, Jaso.Chosung.ᄇ);
-		assertEquals("오비우비우베오배우버으비", dokebirizer.encode("외위웨왜워의"));
+		assertEquals("오비우비우베오배우버으비오바", dokebirizer.encode("외위웨왜워의와"));
 		assertEquals("오비하발머버니비르블 보비러버 가밨다바", dokebirizer.encode("외할머니를 뵈러 갔다"));
 		assertEquals("외할머니를 뵈러 갔다", dokebirizer.decode("오비하발머버니비르블 보비러버 가밨다바"));
 
 		dokebirizer = new Dokebirizer(Dokebirizer.Policy.Copy, Jaso.Chosung.ᄇ);
-		assertEquals("외뵈위뷔웨붸왜봬워붜의븨", dokebirizer.encode("외위웨왜워의"));
+		assertEquals("외뵈위뷔웨붸왜봬워붜의븨와봐", dokebirizer.encode("외위웨왜워의와"));
 		assertEquals("외뵈하발머버니비르블 뵈뵈러버 가밨다바", dokebirizer.encode("외할머니를 뵈러 갔다"));
 		assertEquals("외할머니를 뵈러 갔다", dokebirizer.decode("외뵈하발머버니비르블 뵈뵈러버 가밨다바"));
 
 		dokebirizer = new Dokebirizer(Dokebirizer.Policy.Transform, Jaso.Chosung.ᄇ);
-		assertEquals("외베위비웨베왜배워버의비", dokebirizer.encode("외위웨왜워의"));
+		assertEquals("외베위비웨베왜배워버의비와바", dokebirizer.encode("외위웨왜워의와"));
 		assertEquals("외베하발머버니비르블 뵈베러버 가밨다바", dokebirizer.encode("외할머니를 뵈러 갔다"));
 		assertEquals("외할머니를 뵈러 갔다", dokebirizer.decode("외베하발머버니비르블 뵈베러버 가밨다바"));
 
