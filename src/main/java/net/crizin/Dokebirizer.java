@@ -18,6 +18,7 @@ public class Dokebirizer {
 					put(Jaso.Jungsung.ㅙ, new Jaso.Jungsung[]{Jaso.Jungsung.ㅗ, Jaso.Jungsung.ㅐ});
 					put(Jaso.Jungsung.ㅝ, new Jaso.Jungsung[]{Jaso.Jungsung.ㅜ, Jaso.Jungsung.ㅓ});
 					put(Jaso.Jungsung.ㅢ, new Jaso.Jungsung[]{Jaso.Jungsung.ㅡ, Jaso.Jungsung.ㅣ});
+					put(Jaso.Jungsung.ㅘ, new Jaso.Jungsung[]{Jaso.Jungsung.ㅗ, Jaso.Jungsung.ㅏ});
 				}
 			};
 
@@ -39,6 +40,7 @@ public class Dokebirizer {
 					put(Jaso.Jungsung.ㅙ, new Jaso.Jungsung[]{Jaso.Jungsung.ㅙ, Jaso.Jungsung.ㅐ});
 					put(Jaso.Jungsung.ㅝ, new Jaso.Jungsung[]{Jaso.Jungsung.ㅝ, Jaso.Jungsung.ㅓ});
 					put(Jaso.Jungsung.ㅢ, new Jaso.Jungsung[]{Jaso.Jungsung.ㅢ, Jaso.Jungsung.ㅣ});
+					put(Jaso.Jungsung.ㅘ, new Jaso.Jungsung[]{Jaso.Jungsung.ㅘ, Jaso.Jungsung.ㅏ});
 				}
 			};
 
