@@ -8,7 +8,7 @@
 
 ## Dokebirizer.Policy
 
-두 번쨰 음절의 모음을 어떻게 표현할지 결정하는 방법. 기본값은 `Policy.Split`.
+두 번째 음절의 모음을 어떻게 표현할지 결정하는 방법. 기본값은 `Policy.Split`.
 
 ### Policy.Split
 이중모음을 분리시켜 사용하는 방법.
