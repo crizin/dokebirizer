@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/110c1e99ef854713bbef5dc4209be198)](https://www.codacy.com/app/crizin/dokebirizer?utm_source=github.com&utm_medium=referral&utm_content=crizin/dokebirizer&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/crizin/dokebirizer.svg?branch=master)](https://travis-ci.org/crizin/dokebirizer)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/110c1e99ef854713bbef5dc4209be198)](https://www.codacy.com/app/crizin/dokebirizer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=crizin/dokebirizer&amp;utm_campaign=Badge_Grade)
 
